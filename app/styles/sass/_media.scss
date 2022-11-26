@@ -36,28 +36,3 @@
         }
     }
 }
-
-@media screen and (max-width: 768px) {
-    .section {
-
-        &__content {
-            max-width: 600px;
-            position: relative;
-            z-index: 22;
-        }
-
-        &__img {
-            max-width: 100% !important;
-            max-height: 100% !important;
-            width: 100% !important;
-            height: 100% !important;
-            right: 0;
-            left: 0 !important;
-            position: absolute;
-
-            img {
-                border: 0;
-            }
-        }
-    }
-}
