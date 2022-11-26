@@ -1,0 +1,36 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    color: #fff;
+}
+
+.reset__list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    border: none;
+    display: inline-block;
+    background: #0069ed;
+    color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+    transition: background 250ms ease-in-out, transform 150ms ease;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    object-fit: cover;
+}
