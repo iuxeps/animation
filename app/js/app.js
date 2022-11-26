@@ -12,26 +12,46 @@ document.addEventListener('DOMContentLoaded', () => {
     const section = document.querySelectorAll('.section');
     const imgs = document.querySelectorAll('.section__img');
 
-    for (let index = 0; index < section.length; index++) {
-        const element = section[index];
-        element.style.zIndex = "-" +index;
-    }
+    if (window.innerWidth >= 992) {
 
-    gsap.utils.toArray(".section__img").forEach(img => {
-        let tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: img,
-                start: "center center",
-                end: () => "+=" + section[0].offsetHeight,
-                scrub: true,
-                pin: true,
-                pinSpacing: false,
-                ease: 'power2.easeOut'
-            },
+        for (let index = 0; index < section.length; index++) {
+            const element = section[index];
+            element.style.zIndex = "-" + index;
+        }
+
+        gsap.utils.toArray(".section__img").forEach(img => {
+            let tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: img,
+                    start: "center center",
+                    end: () => "+=" + section[0].offsetHeight,
+                    scrub: true,
+                    pin: true,
+                    pinSpacing: false,
+                    ease: 'power2.easeOut'
+                },
+            });
+
+            // tl.fromTo(img, { yPercent: 0, y: 0 }, { yPercent: 0 });
         });
 
-        // tl.fromTo(img, { yPercent: 0, y: 0 }, { yPercent: 0 });
-    });
+    } else {
+
+        gsap.utils.toArray(".section").forEach(section => {
+            let sn = gsap.timeline({
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top top",
+                    end: () => "+=" + section.offsetHeight / 2,
+                    scrub: true,
+                    pin: true,
+                    pinSpacing: false,
+                    ease: 'power2.easeOut'
+                },
+            });
+        })
+    }
+
 
 
     gsap.utils.toArray(".section__title").forEach(title => {
